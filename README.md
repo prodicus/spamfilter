@@ -21,3 +21,9 @@ classifiers (increasing the accuracy is the aim)
 
 **Make an issue if you have any query**
 
+- before developing a feature, please create a seperate branch from the master
+as this will reduce merge conflicts, 
+
+```sh
+$ git checkout -b <username>/<feature_to_implement>
+```
