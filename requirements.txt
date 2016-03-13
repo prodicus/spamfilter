@@ -1,0 +1,5 @@
+beautifulsoup4==4.4.1
+nltk==3.2
+tabulate==0.7.5
+termcolor==1.1.0
+clint==0.5.1

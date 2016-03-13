@@ -15,6 +15,9 @@ Building a spam filter for our mini-project
 - To make a voting system which will take the best out of all the
 classifiers (increasing the accuracy is the aim)
 
+- To decide on whether to use `clint` or `termcolor`
+- [ ] deploying it to [heroku](https://heroku.com)
+
 **More to come** 
 
 ### Regarding the dataset
@@ -82,6 +85,8 @@ Spam | Ham
 - **Make an issue if you have any query**
 - before developing a feature, please create a seperate branch from the master
 as this will reduce merge conflicts, 
+- Before making a Pull request, check whether that it passes `flake8` or 
+conforms to [PEP0008](http://pep8.org/)
 
 ```sh
 $ git checkout -b <username>/<feature_to_implement>
