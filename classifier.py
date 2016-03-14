@@ -8,7 +8,7 @@
 # @https://github.com/prodicus
 
 """
-Rolling my own Implementation of Naive Bayes algorithm. 
+Rolling my own Implementation of Naive Bayes algorithm.
 
 This particular implementation caters to the case when a category is not
 observed in the dataset, and the model automatically assigns a 0 probability
@@ -57,13 +57,15 @@ class NaiveBayesClassifier(object):
         Trying to emulate the API which the NLTK wrapper tries to provide for
         its nltk.NaiveBayesClassifier.train() gives
 
-        .. note:: 
+        .. note::
 
         `defaultdict` is used bacause when we try to acces a key which is not
-        there in the `dictionary`, we get a `KeyError`. Whereas in `defaultdict`.
-        It will try to return a default value if the key is not found.
+        there in the `dictionary`, we get a `KeyError`. Whereas in
+        `defaultdict`.It will try to return a default value if the key is not
+        found.
 
-        For more on `defaultdict`, refer http://stackoverflow.com/a/5900634/3834059
+        For more on `defaultdict`,
+        Refer: http://stackoverflow.com/a/5900634/3834059
 
         :param self: class object
         :param featurelist: the list of the features
@@ -84,13 +86,14 @@ class NaiveBayesClassifier(object):
     def feature_probability(self, feature, label):
         """
         This function calculates the probability of a feature to belong to a
-        particular label. (i.e class of 'spam' or 'ham' for us.) 
+        particular label. (i.e class of 'spam' or 'ham' for us.)
 
         #TO-DO
         for an unseen featurem I can assign a random probability, let's say 0.5
 
         :param self: class object
-        :param feature: The feature for which we will be calculating the probailty.
+        :param feature: The feature for which we will be calculating the
+                        probailty.
         :param label: spam or ham
         :returns: The probability of the feature being in the label.
         """
@@ -102,11 +105,11 @@ class NaiveBayesClassifier(object):
         # rev_class = lambda label: "spam" if label == "ham" else "ham"
         # looks same to me!
 
-        #*---------------------------------------------------------------------
-        # P ( S | token ) =            no_in_spam / no_of_spam     <--- NUMERATOR
+        # *---------------------------------------------------------------------
+        # P ( S | token ) =         no_in_spam / no_of_spam    <--- NUMERATOR
         #                     _______________________________________________
         #  DENOMINATOR --->    no_in_spam / no_of_spam + no_in_ham / no_of_ham
-        #----------------------------------------------------------------------
+        # ----------------------------------------------------------------------
 
         feature_count = self.feature_label[feature][label]
         rev_class_count = self.feature_label[feature][rev_class]
@@ -117,20 +120,21 @@ class NaiveBayesClassifier(object):
         if feature_count and label_count:
             NUMERATOR = feature_count / label_count
             DENOMINATOR = feature_count / label_count + \
-                rev_class_count / self.label_count[opp_label]
+                rev_class_count / self.label_count[rev_class]
             probability = NUMERATOR / DENOMINATOR
 
         return probability
 
     def document_probability(self, features, label):
         """
-        Finds `document_probability()` by looping over the documents and calling 
-        `feature_probability()`
+        Finds `document_probability()` by looping over the documents and
+        calling `feature_probability()`
 
         :param self: class object
         :param features: List of features
         :param label: Label whose probability needs to be classified
-        :returns: the probability of the document in being in a particular class
+        :returns: the probability of the document in being in a particular
+                  class
         """
 
         if not self.total:
@@ -176,9 +180,13 @@ class NaiveBayesClassifier(object):
         self.classification = probability
 
         if len(probability.items()) > 0:
-            return sorted(probability.items(), key=lambda (k, v): v, reverse=True)[0][0]
+            return sorted(
+                probability.items(),
+                key=lambda (k, v): v,
+                reverse=True
+                )[0][0]
         else:
-            return "Bad day bruh! Come next time."
+            return "Bad day bruh! No classification done! Come next time."
 
     # for testing puposes
     def print_classification(self):
@@ -188,8 +196,11 @@ class NaiveBayesClassifier(object):
         :param self: class object
         """
         list_of_lists = [list(elem) for elem in self.classification.items()]
-        print tabulate(list_of_lists, headers=['Label', 'Score'], tablefmt='orgtbl')
-
+        print tabulate(
+            list_of_lists,
+            headers=['Label', 'Score'],
+            tablefmt='orgtbl'
+            )
 
     def __str__(self):
         """
