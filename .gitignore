@@ -1,8 +1,6 @@
 # Project related files
-*.tar.gz
 testing_file.py
 testing_file.ipynb
-.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

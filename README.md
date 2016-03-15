@@ -8,14 +8,21 @@ Building a spam filter for our mini-project
   - [x] make a training set
   - [x] make a testing set (against which we will test our trained model)
 - Machine learning models to be tested upon
-  - [ ] Naive Bayes
+  - [x] Naive Bayes
   - [ ] Logistic regression
   - [ ] Linear SVM
   - **more to come**
-- To make a voting system which will take the best out of all the
-classifiers (increasing the accuracy is the aim)
+- Implement [`sklearn`'s machine learning algorithms](scikit-learn.org/stable/modules/naive_bayes.html) (Will have to read upon on what's feasible and what
+  is not!)
+- To add [`logging` module](https://docs.python.org/2/howto/logging.html) into `test.py`
+  for logging error messages. 
 
-- To decide on whether to use `clint` or `termcolor`
+## Far fetched Ideas!
+
+- [ ]To make a voting system which will take the best out of all the
+classifiers (increasing the accuracy is the aim)
+- [x] To decide on whether to use `clint` or `termcolor`~ Using colorama as
+  explained in commit [a128424](https://github.com/prodicus/spamfilter/commits/master)
 - [ ] deploying it to [heroku](https://heroku.com)
 
 **More to come** 
@@ -27,69 +34,83 @@ total size of the whole file being close to **1.8GB**.
 
 So we will be using the dataset used in the paper ["Spam Filtering with Naive Bayes - Which Naive Bayes?"](http://www.aueb.gr/users/ion/docs/ceas2006_paper.pdf). 
 
-Namely
+Namely -
 
-- `enron1`
-- `enron2`
-- `enron3`
-- `enron4`
-- `enron5`
-- `enron6`
+- `corpus1`
+- `corpus2`
+- `corpus3`
 
 #### Typical directory structure
 
 ```sh
-tasdik at Acer in ~/Dropbox/projects/spamfilter on master [!?]
-$ tree data/ -I "corpus|corpus2|corpus3" | head -n 10
-data/
+tasdik at Acer in ~/Dropbox/projects/spamfilter on master [!]
+$ tree -L 2 data
+data
+├── corpus1
+│   ├── ham
+│   └── spam
+├── corpus2
+│   ├── ham
+│   └── spam
+├── corpus3
+│   ├── ham
+│   ├── spam
+│   └── Summary.txt
 ├── enron1
 │   ├── ham
-│   │   ├── 0001.1999-12-10.farmer.ham.txt
-│   │   ├── 0002.1999-12-13.farmer.ham.txt
-│   │   ├── 0003.1999-12-14.farmer.ham.txt
-│   │   ├── 0004.1999-12-14.farmer.ham.txt
-│   │   ├── 0005.1999-12-14.farmer.ham.txt
-│   │   ├── 0007.1999-12-14.farmer.ham.txt
-│   │   ├── 0009.1999-12-14.farmer.ham.txt
-
-tasdik at Acer in ~/Dropbox/projects/spamfilter on master [!?]
-$ #### FOR SPAM FOLDER
-
-tasdik at Acer in ~/Dropbox/projects/spamfilter on master [!?]
-$ tree data/ -I "corpus|corpus2|corpus3|ham" | head -n 10
-data/
-├── enron1
 │   ├── spam
-│   │   ├── 0006.2003-12-18.GP.spam.txt
-│   │   ├── 0008.2003-12-18.GP.spam.txt
-│   │   ├── 0017.2003-12-18.GP.spam.txt
-│   │   ├── 0018.2003-12-18.GP.spam.txt
-│   │   ├── 0026.2003-12-18.GP.spam.txt
-│   │   ├── 0032.2003-12-19.GP.spam.txt
-│   │   ├── 0040.2003-12-19.GP.spam.txt
+│   └── Summary.txt
+├── enron2
+│   ├── ham
+│   ├── spam
+│   └── Summary.txt
+├── enron3
+│   ├── ham
+│   ├── spam
+│   └── Summary.txt
+├── enron4
+│   ├── ham
+│   ├── spam
+│   └── Summary.txt
+├── enron5
+│   ├── ham
+│   ├── spam
+│   └── Summary.txt
+└── enron6
+    ├── ham
+    ├── spam
+    └── Summary.txt
 
-tasdik at Acer in ~/Dropbox/projects/spamfilter on master [!?]
-$ 
+27 directories, 7 files
+
 ```
 
-**note**: The number at the beginning of each filename is the "order of arrival".
 
 ##### Total files 
 
-Spam | Ham
---- | ---
-17171 | 16545
+```sh
+tasdik at Acer in ~/Dropbox/projects/spamfilter on master [!?]
+$ find ~/Dropbox/projects/spamfilter/data -type f | wc -l
+50070
+```
 
-## To the team members
+Yeah, right. Close to **50k** emails
+
+## To the contributers
 
 - **Make an issue if you have any query**
 - before developing a feature, please create a seperate branch from the master
 as this will reduce merge conflicts, 
+
+```sh
+$ git checkout -b <username>/<feature_to_implement>
+```
+
 - Before making a Pull request, check whether that it passes `flake8` or 
 conforms to [PEP0008](http://pep8.org/)
 
 ```sh
-$ git checkout -b <username>/<feature_to_implement>
+$ flake8 <file_you_are_working>.py
 ```
 
 ## References

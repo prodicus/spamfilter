@@ -2,7 +2,7 @@
 # @Author: Tasdik Rahman
 # @Date:   2016-03-12
 # @Last Modified by:   Tasdik Rahman
-# @Last Modified time: 2016-03-13
+# @Last Modified time: 2016-03-15
 # @MIT License
 # @http://tasdikrahman.me
 # @https://github.com/prodicus
@@ -46,7 +46,11 @@ class NaiveBayesClassifier(object):
         self.total = 0
         self.label_count = defaultdict(int)
         self.feature_count = defaultdict(int)
-        self.feature_label = defaultdict(int)
+        self.feature_label = defaultdict(lambda: defaultdict(int))
+        # Reason?
+        # ref1: http://stackoverflow.com/a/5029989/3834059
+        # ref2: http://stackoverflow.com/q/8419401/3834059
+        # ref3: http://stackoverflow.com/q/2600790/3834059
         # self.feature_label = defaultdict(lambda: defaultdict(int))
         self.classification = defaultdict(int)
 
@@ -80,8 +84,8 @@ class NaiveBayesClassifier(object):
             self.feature_label[feature][label] += 1
 
         # incrementing label counts and the like
-        self.total += 1
         self.label_count[label] += 1
+        self.total = self.total + 1
 
     def feature_probability(self, feature, label):
         """
@@ -89,7 +93,8 @@ class NaiveBayesClassifier(object):
         particular label. (i.e class of 'spam' or 'ham' for us.)
 
         #TO-DO
-        for an unseen featurem I can assign a random probability, let's say 0.5
+        for an unseen featurem I can assign a random probability, let's say
+        0.5
 
         :param self: class object
         :param feature: The feature for which we will be calculating the
@@ -208,10 +213,7 @@ class NaiveBayesClassifier(object):
 
         :param self: class object
         """
-        return "No of Features : {feature}, \
-                Number of spam email : {spam}, \
-                Number of ham email : {ham}, \
-                Total number of emails:  {total}".format(
+        return "No of Features : {feature}, \nNumber of spam email : {spam}, \nNumber of ham email : {ham}, \nTotal number of emails:  {total}".format(
                         feature=len(self.feature_count),
                         spam=self.label_count['spam'],
                         ham=self.label_count['ham'],

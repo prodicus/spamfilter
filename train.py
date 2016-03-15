@@ -2,15 +2,17 @@
 # @Author: Tasdik Rahman
 # @Date:   2016-03-12
 # @Last Modified by:   Tasdik Rahman
-# @Last Modified time: 2016-03-14
+# @Last Modified time: 2016-03-15
 # @MIT License
 # @http://tasdikrahman.me
 # @https://github.com/prodicus
 
 
 """
-This will train the classifier object and store it in a pickle object for fast
-reuse
+TO-DO:
+======
+
+train the classifier object and store it in a pickle object for fast reuse
 """
 
 import os
@@ -22,13 +24,9 @@ import mimetypes
 import bs4
 from nltk.corpus import stopwords
 from nltk import stem  # uses PoterStemmer()
-from clint.textui import colored, puts
-# use either clint or
-# from termcolor import colored
+from termcolor import colored
 
-from .classifier import NaiveBayesClassifier
-from .exceptions import TrainingException
-
+from classifier import NaiveBayesClassifier
 
 class Trainer(object):
 
@@ -48,8 +46,8 @@ class Trainer(object):
         :param directory: location of the training dataset
         :param spam: the sub directory inside the 'directory' which has spam
         :param ham: the sub directory inside the 'directory' which has ham
-        :param limit: The maximum number of mails, the classifier should be
-                      trained over with
+        :param limit: The maximum number of mails, the classifier should \
+                      be trained over with
         """
 
         self.spamdir = os.path.join(directory, spam)
@@ -72,12 +70,9 @@ class Trainer(object):
             or self.limit
 
         if verbose:
-            puts(colored.green(
-                "Training {num_email}'s in {label}".format(
-                    num_email=limit,
-                    label=label
-                    )
-                )
+            print colored("Training {0} emails in {1} class".format(
+                limit, label
+                ),'green'
             )
 
         # changing the path to that particular directory
@@ -85,10 +80,7 @@ class Trainer(object):
 
         for email in os.listdir(path)[:self.limit]:
             if verbose and verbose > 1:
-                puts(colored.green(
-                    "Proessing file : {file}".format(file=email)
-                )
-                )
+                print colored("Processing file: {0}".format(email),'green')
             email_file = open(email, 'r')  # explicit better than implicit
             email_text = email_file.read()
 
@@ -103,11 +95,7 @@ class Trainer(object):
                 email_text = bs4.UnicodeDammit.detwingle(
                     email_text).decode('utf-8')
             except:
-                raise UnicodeError(
-                    puts(colored.red(
-                        "Skipping {filename} because of bad \
-                        encoding".format(filename=email)))
-                )
+                print colored("Skipping file {0} because of bad coding".format(email),'red')
                 continue
 
             email_file.close()
@@ -122,7 +110,7 @@ class Trainer(object):
         """prints the __str__ overridden method in the class
         'NaiveBayesClassier'
         """
-        puts(colored.green(self.classifier))
+        print self.classifier
 
     def train(self, verbose=False):
         """
@@ -216,7 +204,7 @@ class Trainer(object):
 
         return features
 
-    # TO-DO
+    # TO-DO: Saving the pickle object for faster reuse
     def save_pickle(self):
         """
         :param self: Trainer object
