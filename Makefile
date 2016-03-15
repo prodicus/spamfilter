@@ -8,7 +8,7 @@
 # @https://github.com/prodicus
 
 run:
-	python test.py
+	python testNB.py
 
 clean:
 	find /home/tasdik/Dropbox/projects/spamfilter -iname "*.pyc" \

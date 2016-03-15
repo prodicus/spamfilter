@@ -12,20 +12,19 @@ Building a spam filter for our mini-project
   - [ ] Logistic regression
   - [ ] Linear SVM
   - **more to come**
-- Implement [`sklearn`'s machine learning algorithms](scikit-learn.org/stable/modules/naive_bayes.html) (Will have to read upon on what's feasible and what
+- Implement [`sklearn`'s machine learning algorithms](https://scikit-learn.org/stable/modules/naive_bayes.html) (Will have to read upon on what's feasible and what
   is not!)
 - To add [`logging` module](https://docs.python.org/2/howto/logging.html) into `test.py`
   for logging error messages. 
 
 ## Far fetched Ideas!
 
-- [ ]To make a voting system which will take the best out of all the
+- [ ] To make a voting system which will take the best out of all the
 classifiers (increasing the accuracy is the aim)
-- [x] To decide on whether to use `clint` or `termcolor`~ Using colorama as
-  explained in commit [a128424](https://github.com/prodicus/spamfilter/commits/master)
+- [x] ~To decide on whether to use `clint` or `termcolor`~ Using colorama as
+  explained in commit [89da4cd](https://github.com/prodicus/spamfilter/commit/89da4cd534abef3adec7b6b22a4e64e0f2b33393)
 - [ ] deploying it to [heroku](https://heroku.com)
-
-**More to come** 
+- [ ] **More to come** 
 
 ### Regarding the dataset
 
@@ -110,8 +109,9 @@ $ git checkout -b <username>/<feature_to_implement>
 conforms to [PEP0008](http://pep8.org/)
 
 ```sh
-$ flake8 <file_you_are_working>.py
+$ flake8 <file_you_are_working_on>.py
 ```
+- Don't forget to flattening(`rebasing`) your commits to 1 before making PR.
 
 ## References
 

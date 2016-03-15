@@ -8,13 +8,6 @@
 # @https://github.com/prodicus
 
 
-"""
-TO-DO:
-======
-
-train the classifier object and store it in a pickle object for fast reuse
-"""
-
 import os
 import string
 import re
