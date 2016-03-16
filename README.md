@@ -12,20 +12,71 @@ Building a spam filter for our mini-project
   - [ ] Logistic regression
   - [ ] Linear SVM
   - **more to come**
-- Implement [`sklearn`'s machine learning algorithms](scikit-learn.org/stable/modules/naive_bayes.html) (Will have to read upon on what's feasible and what
+- Implement [`sklearn`'s machine learning algorithms](https://scikit-learn.org/stable/modules/naive_bayes.html) (Will have to read upon on what's feasible and what
   is not!)
 - To add [`logging` module](https://docs.python.org/2/howto/logging.html) into `test.py`
   for logging error messages. 
 
+## Running it
+
+#### Installing the dependencies
+
+I prefer to use [`virtualenv`'s](http://docs.python-guide.org/en/latest/dev/virtualenvs/) for keeping the global `python` interpreter clutter free. But you are free to do a system wide install for the dependencies.
+
+
+```sh
+$ git clone https://github.com/prodicus/spamfilter/ && cd spamfilter
+$ ## Install the dependencies
+$ pip install -r requirements.txt
+```
+
+#### Downloading the NLTK corpora
+
+```python
+>>> import nltk
+>>> nltk.download('stopwords')
+```
+
+#### Check whether you have everything set up
+
+```python
+>>> from termcolor import colored
+>>> import bs4
+>>> from nltk.corpus import stopwords
+>>> from nltk import stem
+>>>
+```
+
+If the above imports work without giving you an error, you are good to go!
+
+#### Running the classifier
+
+See that you have [`make`](https://www.gnu.org/software/make/) installed on your system
+
+```sh
+$ make run
+```
+
+Watch and lay back!
+
+#### Accuracy of the classifier
+
+I ran it one too many times and the accuracy is generall between 
+
+**Spam** : _90 to 96%_
+**Ham** : _60 to 80%_
+
+**Watch the classifier [in action here](http://pastebin.com/cwSQxaEX), the last time I ran it**
+
+
 ## Far fetched Ideas!
 
-- [ ]To make a voting system which will take the best out of all the
+- [ ] To make a voting system which will take the best out of all the
 classifiers (increasing the accuracy is the aim)
-- [x] To decide on whether to use `clint` or `termcolor`~ Using colorama as
-  explained in commit [a128424](https://github.com/prodicus/spamfilter/commits/master)
+- [x] ~~To decide on whether to use `clint` or `termcolor`~~ Using colorama as
+  explained in commit [89da4cd](https://github.com/prodicus/spamfilter/commit/89da4cd534abef3adec7b6b22a4e64e0f2b33393)
 - [ ] deploying it to [heroku](https://heroku.com)
-
-**More to come** 
+- [ ] **More to come** 
 
 ### Regarding the dataset
 
@@ -99,7 +150,7 @@ Yeah, right. Close to **50k** emails
 ## To the contributers
 
 - **Make an issue if you have any query**
-- before developing a feature, please create a seperate branch from the master
+- before developing a feature, create a seperate branch from the master on you fork
 as this will reduce merge conflicts, 
 
 ```sh
@@ -110,8 +161,9 @@ $ git checkout -b <username>/<feature_to_implement>
 conforms to [PEP0008](http://pep8.org/)
 
 ```sh
-$ flake8 <file_you_are_working>.py
+$ flake8 <file_you_are_working_on>.py
 ```
+- Don't forget to flattening(`rebasing`) your commits to 1 before making PR.
 
 ## References
 
