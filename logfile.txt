@@ -1,21 +1,112 @@
-2016-03-20 09:21:14,747 - INFO - Training against the directory corpus2
-2016-03-20 09:21:20,345 - DEBUG - Training 100 emails in spam class
-2016-03-20 09:21:21,709 - ERROR - Skipping file 3444.2005-07-04.SA_and_HP.spam.txt because of bad coding
-2016-03-20 09:21:24,638 - INFO - No of Features : 3122, 
-Number of spam email : 99, 
+2016-03-20 09:58:26,815 - INFO - Training against the directory corpus3
+2016-03-20 09:58:32,796 - DEBUG - Training 1000 emails in spam class
+2016-03-20 09:58:32,871 - ERROR - Skipping file 5656.2005-07-09.BG.spam.txt because of bad coding
+2016-03-20 09:58:33,530 - ERROR - Skipping file 0092.2004-08-07.BG.spam.txt because of bad coding
+2016-03-20 09:58:34,223 - ERROR - Skipping file 4029.2005-03-21.BG.spam.txt because of bad coding
+2016-03-20 09:58:36,235 - ERROR - Skipping file 0104.2004-08-08.BG.spam.txt because of bad coding
+2016-03-20 09:58:36,366 - ERROR - Skipping file 2909.2005-01-22.BG.spam.txt because of bad coding
+2016-03-20 09:58:37,354 - ERROR - Skipping file 1137.2004-10-19.BG.spam.txt because of bad coding
+2016-03-20 09:58:38,113 - ERROR - Skipping file 1006.2004-10-11.BG.spam.txt because of bad coding
+2016-03-20 09:58:39,402 - ERROR - Skipping file 1012.2004-10-11.BG.spam.txt because of bad coding
+2016-03-20 09:58:39,608 - ERROR - Skipping file 5749.2005-07-15.BG.spam.txt because of bad coding
+2016-03-20 09:58:40,605 - ERROR - Skipping file 1268.2004-10-27.BG.spam.txt because of bad coding
+2016-03-20 09:58:41,418 - ERROR - Skipping file 2647.2005-01-11.BG.spam.txt because of bad coding
+2016-03-20 09:58:44,891 - ERROR - Skipping file 2744.2005-01-16.BG.spam.txt because of bad coding
+2016-03-20 09:58:49,863 - ERROR - Skipping file 1307.2004-10-29.BG.spam.txt because of bad coding
+2016-03-20 09:58:50,470 - ERROR - Skipping file 0835.2004-09-29.BG.spam.txt because of bad coding
+2016-03-20 09:58:50,868 - ERROR - Skipping file 0407.2004-08-30.BG.spam.txt because of bad coding
+2016-03-20 09:58:50,870 - ERROR - Skipping file 5224.2005-06-10.BG.spam.txt because of bad coding
+2016-03-20 09:58:51,538 - ERROR - Skipping file 0244.2004-08-18.BG.spam.txt because of bad coding
+2016-03-20 09:58:51,650 - ERROR - Skipping file 5834.2005-07-19.BG.spam.txt because of bad coding
+2016-03-20 09:58:51,850 - ERROR - Skipping file 2265.2004-12-22.BG.spam.txt because of bad coding
+2016-03-20 09:58:53,170 - ERROR - Skipping file 0810.2004-09-28.BG.spam.txt because of bad coding
+2016-03-20 09:58:54,027 - ERROR - Skipping file 3720.2005-03-03.BG.spam.txt because of bad coding
+2016-03-20 09:58:54,389 - ERROR - Skipping file 4191.2005-04-01.BG.spam.txt because of bad coding
+2016-03-20 09:58:54,570 - ERROR - Skipping file 5815.2005-07-18.BG.spam.txt because of bad coding
+2016-03-20 09:58:55,606 - ERROR - Skipping file 0460.2004-09-03.BG.spam.txt because of bad coding
+2016-03-20 09:58:57,217 - ERROR - Skipping file 0080.2004-08-06.BG.spam.txt because of bad coding
+2016-03-20 09:58:58,029 - ERROR - Skipping file 5635.2005-07-07.BG.spam.txt because of bad coding
+2016-03-20 09:58:59,261 - ERROR - Skipping file 0269.2004-08-20.BG.spam.txt because of bad coding
+2016-03-20 09:59:00,410 - ERROR - Skipping file 3358.2005-02-10.BG.spam.txt because of bad coding
+2016-03-20 09:59:03,727 - ERROR - Skipping file 3880.2005-03-13.BG.spam.txt because of bad coding
+2016-03-20 09:59:04,179 - ERROR - Skipping file 2343.2004-12-25.BG.spam.txt because of bad coding
+2016-03-20 09:59:04,696 - ERROR - Skipping file 5743.2005-07-15.BG.spam.txt because of bad coding
+2016-03-20 09:59:05,787 - ERROR - Skipping file 0716.2004-09-21.BG.spam.txt because of bad coding
+2016-03-20 09:59:07,269 - ERROR - Skipping file 1204.2004-10-24.BG.spam.txt because of bad coding
+2016-03-20 09:59:07,417 - ERROR - Skipping file 1188.2004-10-23.BG.spam.txt because of bad coding
+2016-03-20 09:59:08,862 - ERROR - Skipping file 0459.2004-09-03.BG.spam.txt because of bad coding
+2016-03-20 09:59:08,896 - ERROR - Skipping file 2762.2005-01-17.BG.spam.txt because of bad coding
+2016-03-20 09:59:09,724 - ERROR - Skipping file 5736.2005-07-14.BG.spam.txt because of bad coding
+2016-03-20 09:59:11,450 - ERROR - Skipping file 3873.2005-03-12.BG.spam.txt because of bad coding
+2016-03-20 09:59:11,577 - ERROR - Skipping file 1925.2004-12-02.BG.spam.txt because of bad coding
+2016-03-20 09:59:15,517 - ERROR - Skipping file 4023.2005-03-20.BG.spam.txt because of bad coding
+2016-03-20 09:59:15,600 - ERROR - Skipping file 3445.2005-02-15.BG.spam.txt because of bad coding
+2016-03-20 09:59:16,565 - ERROR - Skipping file 1282.2004-10-28.BG.spam.txt because of bad coding
+2016-03-20 09:59:19,597 - ERROR - Skipping file 0308.2004-08-22.BG.spam.txt because of bad coding
+2016-03-20 09:59:19,658 - ERROR - Skipping file 0793.2004-09-27.BG.spam.txt because of bad coding
+2016-03-20 09:59:19,781 - ERROR - Skipping file 0018.2004-08-02.BG.spam.txt because of bad coding
+2016-03-20 09:59:21,682 - ERROR - Skipping file 2180.2004-12-18.BG.spam.txt because of bad coding
+2016-03-20 09:59:22,644 - INFO - No of Features : 17911, 
+Number of spam email : 954, 
 Number of ham email : 0, 
-Total number of emails:  99
-2016-03-20 09:21:24,639 - DEBUG - Training 100 emails in ham class
-2016-03-20 09:21:28,652 - INFO - No of Features : 4238, 
-Number of spam email : 99, 
-Number of ham email : 100, 
-Total number of emails:  199
-2016-03-20 09:21:28,652 - INFO - Training took 0.0 minutes : 8.31349 seconds
-2016-03-20 09:21:33,293 - INFO - Testing the classifier on dataset corpus3
-2016-03-20 09:21:38,650 - ERROR - Skipping file: '5656.2005-07-09.BG.spam.txt'' due to bad encoding!
-2016-03-20 09:21:39,064 - WARNING - Classified 3549.2005-02-20.BG.spam.txt incorrectly
-2016-03-20 09:21:39,317 - ERROR - Skipping file: '0092.2004-08-07.BG.spam.txt'' due to bad encoding!
-2016-03-20 09:21:39,375 - WARNING - Classified 0954.2004-10-07.BG.spam.txt incorrectly
-2016-03-20 09:21:40,014 - ERROR - Skipping file: '4029.2005-03-21.BG.spam.txt'' due to bad encoding!
-2016-03-20 09:21:40,649 - INFO - Files classified correctly : 45 out of 47
-2016-03-20 09:21:40,650 - INFO - Precision : 0.957446808511
+Total number of emails:  954
+2016-03-20 09:59:22,645 - DEBUG - Training 1000 emails in ham class
+2016-03-20 10:00:22,165 - INFO - No of Features : 22568, 
+Number of spam email : 954, 
+Number of ham email : 1000, 
+Total number of emails:  1954
+2016-03-20 10:00:22,165 - INFO - Training took 1.0 minutes : 49.375871 seconds
+2016-03-20 10:00:28,941 - INFO - Testing the classifier on dataset corpus3
+2016-03-20 10:00:37,053 - ERROR - Skipping file: '5656.2005-07-09.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:37,721 - ERROR - Skipping file: '0092.2004-08-07.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:38,422 - ERROR - Skipping file: '4029.2005-03-21.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:39,284 - WARNING - Classified 5910.2005-07-23.BG.spam.txt incorrectly
+2016-03-20 10:00:40,448 - ERROR - Skipping file: '0104.2004-08-08.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:40,580 - ERROR - Skipping file: '2909.2005-01-22.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:41,534 - ERROR - Skipping file: '1137.2004-10-19.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:42,208 - ERROR - Skipping file: '1006.2004-10-11.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:43,270 - ERROR - Skipping file: '1012.2004-10-11.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:43,440 - ERROR - Skipping file: '5749.2005-07-15.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:44,364 - ERROR - Skipping file: '1268.2004-10-27.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:45,040 - ERROR - Skipping file: '2647.2005-01-11.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:47,022 - WARNING - Classified 5281.2005-06-15.BG.spam.txt incorrectly
+2016-03-20 10:00:48,063 - ERROR - Skipping file: '2744.2005-01-16.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:52,334 - ERROR - Skipping file: '1307.2004-10-29.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:52,854 - ERROR - Skipping file: '0835.2004-09-29.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:53,206 - ERROR - Skipping file: '0407.2004-08-30.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:53,208 - ERROR - Skipping file: '5224.2005-06-10.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:53,828 - ERROR - Skipping file: '0244.2004-08-18.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:53,911 - ERROR - Skipping file: '5834.2005-07-19.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:54,092 - ERROR - Skipping file: '2265.2004-12-22.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:55,130 - ERROR - Skipping file: '0810.2004-09-28.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:55,850 - ERROR - Skipping file: '3720.2005-03-03.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:56,156 - ERROR - Skipping file: '4191.2005-04-01.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:56,216 - WARNING - Classified 2425.2004-12-30.BG.spam.txt incorrectly
+2016-03-20 10:00:56,267 - ERROR - Skipping file: '5815.2005-07-18.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:57,166 - ERROR - Skipping file: '0460.2004-09-03.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:58,513 - ERROR - Skipping file: '0080.2004-08-06.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:00:59,184 - ERROR - Skipping file: '5635.2005-07-07.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:00,193 - ERROR - Skipping file: '0269.2004-08-20.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:01,188 - ERROR - Skipping file: '3358.2005-02-10.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:02,750 - WARNING - Classified 5131.2005-06-05.BG.spam.txt incorrectly
+2016-03-20 10:01:04,149 - ERROR - Skipping file: '3880.2005-03-13.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:04,558 - ERROR - Skipping file: '2343.2004-12-25.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:05,041 - ERROR - Skipping file: '5743.2005-07-15.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:06,001 - ERROR - Skipping file: '0716.2004-09-21.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:07,310 - ERROR - Skipping file: '1204.2004-10-24.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:07,442 - ERROR - Skipping file: '1188.2004-10-23.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:08,685 - ERROR - Skipping file: '0459.2004-09-03.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:08,711 - ERROR - Skipping file: '2762.2005-01-17.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:09,417 - ERROR - Skipping file: '5736.2005-07-14.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:11,017 - ERROR - Skipping file: '3873.2005-03-12.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:11,117 - ERROR - Skipping file: '1925.2004-12-02.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:12,331 - WARNING - Classified 3137.2005-02-01.BG.spam.txt incorrectly
+2016-03-20 10:01:14,515 - ERROR - Skipping file: '4023.2005-03-20.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:14,574 - ERROR - Skipping file: '3445.2005-02-15.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:15,340 - ERROR - Skipping file: '1282.2004-10-28.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:17,786 - ERROR - Skipping file: '0308.2004-08-22.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:17,831 - ERROR - Skipping file: '0793.2004-09-27.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:17,940 - ERROR - Skipping file: '0018.2004-08-02.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:19,391 - ERROR - Skipping file: '2180.2004-12-18.BG.spam.txt'' due to bad encoding!
+2016-03-20 10:01:20,203 - INFO - Files classified correctly : 949 out of 954
+2016-03-20 10:01:20,204 - INFO - Precision : 0.994758909853
