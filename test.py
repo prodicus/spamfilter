@@ -46,6 +46,7 @@ def test(trainer, classifier_object, label):
     print "Testing the classifier on Test Dataset\n"
 
     corpus = raw_input(colored("Enter corpus directory: [eg: corpus3] ", 'cyan'))
+    logging.info("Testing the classifier on dataset "+corpus)
     corpus = os.path.join(CORPUS_DIR, corpus)
     label_dir = raw_input(colored("Enter {0} directory: ".format(label), 'cyan'))
     label_dir = os.path.join(corpus, label)
@@ -98,6 +99,7 @@ def test(trainer, classifier_object, label):
     logging.info('Files classified correctly : {0} out of {1}'.format(correct, 
         total))
     print colored('Precision : {0}'.format(precision), 'blue')
+    logging.info('Precision : {0}'.format(precision))
 
 
 def main():
@@ -105,6 +107,7 @@ def main():
 
     directory = raw_input(colored("Enter Corpus Directory['eg: corpus2'] : ",
      'blue'))
+    logging.info("Training against the directory "+directory)
     spam = raw_input(colored("Enter Spam Sub Directory[eg : 'spam']: ",
         'blue'))
     ham = raw_input(colored("Enter Clean Emails Sub Directory[eg :'ham']: ",
