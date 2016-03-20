@@ -13,3 +13,4 @@ run:
 clean:
 	find /home/tasdik/Dropbox/projects/spamfilter -iname "*.pyc" \
 	-exec rm "{}" \;
+	rm logfile.txt;

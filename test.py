@@ -11,9 +11,11 @@ from __future__ import division
 import os
 from datetime import datetime
 import bs4
-
+import logging
 from termcolor import colored
 from train import Trainer
+
+logging.basicConfig(filename='logfile.txt', level = logging.DEBUG, filemode = 'w', format = '%(asctime)s - %(levelname)s - %(message)s')
 
 __title__ = 'SpamFilter'
 __version__ = '0.0.1'
@@ -44,6 +46,7 @@ def test(trainer, classifier_object, label):
     print "Testing the classifier on Test Dataset\n"
 
     corpus = raw_input(colored("Enter corpus directory: [eg: corpus3] ", 'cyan'))
+    logging.info("Testing the classifier on dataset "+corpus)
     corpus = os.path.join(CORPUS_DIR, corpus)
     label_dir = raw_input(colored("Enter {0} directory: ".format(label), 'cyan'))
     label_dir = os.path.join(corpus, label)
@@ -51,6 +54,7 @@ def test(trainer, classifier_object, label):
         limit = int(raw_input(colored("Enter number of files to be scanned [defaults to 1000 files]: ", 'cyan')))
     except ValueError:
         print 'Invalid Integer input!. Taking the default value now (1000)'
+        logging.debug('Invalid Integer input!. Taking the default value now (1000)')
         limit = 1000
 
     os.chdir(label_dir)
@@ -71,6 +75,8 @@ def test(trainer, classifier_object, label):
         except:
             print colored("Skipping file: '{file}'' due to bad encoding!".format(
                 file=email), 'red')
+            logging.error("Skipping file: '{file}'' due to bad encoding!".format(
+                file=email))
             continue
         email_text = email_text.encode('ascii', 'ignore')
         hamorspam = classifier_object.classify(trainer.extract_features(
@@ -84,11 +90,16 @@ def test(trainer, classifier_object, label):
             print colored('Classified {mail} incorrectly'.format(
                 mail=email), 'yellow'
             )
+            logging.warning('Classified {mail} incorrectly'.format(
+                mail=email))
 
         precision = correct / total
     print colored('Files classified correctly : {0} out of {1}'.format(correct, 
         total))
+    logging.info('Files classified correctly : {0} out of {1}'.format(correct, 
+        total))
     print colored('Precision : {0}'.format(precision), 'blue')
+    logging.info('Precision : {0}'.format(precision))
 
 
 def main():
@@ -96,6 +107,7 @@ def main():
 
     directory = raw_input(colored("Enter Corpus Directory['eg: corpus2'] : ",
      'blue'))
+    logging.info("Training against the directory "+directory)
     spam = raw_input(colored("Enter Spam Sub Directory[eg : 'spam']: ",
         'blue'))
     ham = raw_input(colored("Enter Clean Emails Sub Directory[eg :'ham']: ",
@@ -141,6 +153,7 @@ def main():
         kwargs['ham'] = ham
     except ValueError:
         print colored("Switching back to the default test values:")
+        logging.error("Switching back to the default test values:")
         kwargs['directory'] = 'corpus3'
         kwargs['spam'] = 'spam'
         kwargs['ham'] = 'ham'
@@ -149,6 +162,7 @@ def main():
         kwargs['limit'] = int(limit)
     except TypeError as e:
         print "Taking default value of limit (1000)"
+        logging.error("Taking default value of limit (1000)")
         kwargs['limit'] = 500
 
     trainer = Trainer(**kwargs)
@@ -165,6 +179,10 @@ def main():
         min=minutes_elapsed,
         sec=seconds_elapsed
         ),'green')
+    logging.info("Training took {min} minutes : {sec} seconds".format(
+        min=minutes_elapsed,
+        sec=seconds_elapsed
+        ))
 
     # Testing the accuracy
     test(trainer, classifier_object, 'spam')

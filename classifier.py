@@ -27,10 +27,10 @@ Read about smoothening techniques somewhere but let's not delve into that now.
 from __future__ import division
 from collections import defaultdict
 import math
-
+import logging
 from tabulate import tabulate
 
-
+logging.basicConfig(filename='logfile.txt', level = logging.DEBUG, filemode = 'w', format = '%(asctime)s - %(levelname)s - %(message)s')
 class NaiveBayesClassifier(object):
 
     """
@@ -213,6 +213,12 @@ class NaiveBayesClassifier(object):
 
         :param self: class object
         """
+        logging.info("No of Features : {feature}, \nNumber of spam email : {spam}, \nNumber of ham email : {ham}, \nTotal number of emails:  {total}".format(
+                        feature=len(self.feature_count),
+                        spam=self.label_count['spam'],
+                        ham=self.label_count['ham'],
+                        total=self.total
+                    ))
         return "No of Features : {feature}, \nNumber of spam email : {spam}, \nNumber of ham email : {ham}, \nTotal number of emails:  {total}".format(
                         feature=len(self.feature_count),
                         spam=self.label_count['spam'],

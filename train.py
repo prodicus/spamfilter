@@ -20,13 +20,15 @@ import string
 import re
 import codecs
 import mimetypes
-
+import logging
 import bs4
 from nltk.corpus import stopwords
 from nltk import stem  # uses PoterStemmer()
 from termcolor import colored
 
 from classifier import NaiveBayesClassifier
+
+logging.basicConfig(filename='logfile.txt', level = logging.DEBUG, filemode = 'w', format = '%(asctime)s - %(levelname)s - %(message)s')
 
 class Trainer(object):
 
@@ -74,6 +76,10 @@ class Trainer(object):
                 limit, label
                 ),'green'
             )
+            logging.debug("Training {0} emails in {1} class".format(
+                limit, label
+                )
+            )
 
         # changing the path to that particular directory
         os.chdir(path)
@@ -81,6 +87,7 @@ class Trainer(object):
         for email in os.listdir(path)[:self.limit]:
             if verbose and verbose > 1:
                 print colored("Processing file: {0}".format(email),'green')
+                logging.info("Processing file: {0}".format(email))
             email_file = open(email, 'r')  # explicit better than implicit
             email_text = email_file.read()
 
@@ -96,6 +103,7 @@ class Trainer(object):
                     email_text).decode('utf-8')
             except:
                 print colored("Skipping file {0} because of bad coding".format(email),'red')
+                logging.error("Skipping file {0} because of bad coding".format(email))
                 continue
 
             email_file.close()
