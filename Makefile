@@ -10,6 +10,9 @@
 run:
 	python test.py
 
+pickle_run:
+	python test_classifier_pickle.py
+
 pickle:
 	python create_pickle.py
 
