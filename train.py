@@ -2,7 +2,7 @@
 # @Author: Tasdik Rahman
 # @Date:   2016-03-12
 # @Last Modified by:   Tasdik Rahman
-# @Last Modified time: 2016-03-15
+# @Last Modified time: 2016-03-24 11:23:58
 # @MIT License
 # @http://tasdikrahman.me
 # @https://github.com/prodicus
@@ -20,6 +20,7 @@ import string
 import re
 import codecs
 import mimetypes
+
 import logging
 import bs4
 from nltk.corpus import stopwords
@@ -28,7 +29,12 @@ from termcolor import colored
 
 from classifier import NaiveBayesClassifier
 
-logging.basicConfig(filename='logfile.txt', level = logging.DEBUG, filemode = 'w', format = '%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    filename='logfiles/logfile.txt',
+    level = logging.DEBUG,
+    filemode = 'w',
+    format = '%(asctime)s - %(levelname)s - %(message)s'
+)
 
 class Trainer(object):
 
@@ -95,15 +101,18 @@ class Trainer(object):
             Don't even get me started on the Unicode issues that I faced
             here. Thankfullly 'BeautifulSoup' was there to our rescue.
 
-            Thanks to Leonard Richardson this module
+            Thanks to Leonard Richardson for this module
             """
 
             try:
                 email_text = bs4.UnicodeDammit.detwingle(
                     email_text).decode('utf-8')
             except:
-                print colored("Skipping file {0} because of bad coding".format(email),'red')
-                logging.error("Skipping file {0} because of bad coding".format(email))
+                print colored("Skipping file {0} due to bad encoding".format(email),'red')
+                logging.error("Skipping file {0} due to bad encoding".format(
+                        os.path.join(path, email)
+                    )
+                )
                 continue
 
             email_file.close()
@@ -211,10 +220,3 @@ class Trainer(object):
                 )
 
         return features
-
-    # TO-DO: Saving the pickle object for faster reuse
-    def save_pickle(self):
-        """
-        :param self: Trainer object
-        """
-        pass

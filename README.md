@@ -12,9 +12,10 @@ Building a spam filter for our mini-project
   - [ ] Logistic regression
   - [ ] Linear SVM
   - **more to come**
-- Implement [`sklearn`'s machine learning algorithms](https://scikit-learn.org/stable/modules/naive_bayes.html) (Will have to read upon on what's feasible and what
+- [ ] Implement [`sklearn`'s machine learning algorithms](https://scikit-learn.org/stable/modules/naive_bayes.html) (Will have to read upon on what's feasible and what
   is not!)
-- To add [`logging` module](https://docs.python.org/2/howto/logging.html) into `test.py`
+- [x] Pickling of the classifier trained on `full_corpus`
+- [x] To add [`logging` module](https://docs.python.org/2/howto/logging.html) into `test.py`
   for logging error messages. 
 
 ## Running it
@@ -63,8 +64,10 @@ Watch and lay back!
 
 I ran it one too many times and the accuracy is generall between 
 
-**Spam** : _90 to 96%_
-**Ham** : _60 to 80%_
+| Accuracy |  |
+|:--------:|:---:|
+| **Spam** | _90 to 96%_|
+| **Ham**  | _60 to 80%_ |
 
 **Watch the classifier [in action here](http://pastebin.com/cwSQxaEX), the last time I ran it**
 
@@ -83,20 +86,16 @@ classifiers (increasing the accuracy is the aim)
 The dataset used is the [Enron dataset](http://www.cs.cmu.edu/~enron/). The
 total size of the whole file being close to **1.8GB**.
 
-So we will be using the dataset used in the paper ["Spam Filtering with Naive Bayes - Which Naive Bayes?"](http://www.aueb.gr/users/ion/docs/ceas2006_paper.pdf). 
+So we will be using the dataset used in the paper ["Spam Filtering with Naive Bayes - Which Naive Bayes?"](http://www.aueb.gr/users/ion/docs/ceas2006_paper.pdf) which has already classified the dataset into **spam** and **ham**. 
 
-Namely -
+Training it agains the **full_corpus** dataset and then cross validating the pickled classifier with any of the datasets
 
-- `corpus1`
-- `corpus2`
-- `corpus3`
-
-#### Typical directory structure
+### Typical directory structure
 
 ```sh
-tasdik at Acer in ~/Dropbox/projects/spamfilter on master [!]
-$ tree -L 2 data
-data
+tasdik at Acer in ~/Dropbox/projects/spamfilter/data on pickling [!?]
+$ tree -L 2
+.
 ├── corpus1
 │   ├── ham
 │   └── spam
@@ -127,25 +126,21 @@ data
 │   ├── ham
 │   ├── spam
 │   └── Summary.txt
-└── enron6
-    ├── ham
-    ├── spam
-    └── Summary.txt
+├── enron6
+│   ├── ham
+│   ├── spam
+│   └── Summary.txt
+├── full_corpus
+│   ├── ham
+│   └── spam
+└── README.md
 
-27 directories, 7 files
-
+30 directories, 8 files
 ```
-
 
 ##### Total files 
 
-```sh
-tasdik at Acer in ~/Dropbox/projects/spamfilter on master [!?]
-$ find ~/Dropbox/projects/spamfilter/data -type f | wc -l
-50070
-```
-
-Yeah, right. Close to **50k** emails
+Training against a total of **33,702** emails!
 
 ## To the contributers
 

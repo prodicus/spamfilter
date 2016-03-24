@@ -2,7 +2,7 @@
 # @Author: Tasdik Rahman
 # @Date:   2016-03-14
 # @Last Modified by:   Tasdik Rahman
-# @Last Modified time: 2016-03-15
+# @Last Modified time: 2016-03-24 01:51:41
 # @MIT License
 # @http://tasdikrahman.me
 # @https://github.com/prodicus
@@ -10,12 +10,12 @@
 from __future__ import division
 import os
 from datetime import datetime
-import bs4
 import logging
-from termcolor import colored
-from train import Trainer
 
-logging.basicConfig(filename='logfile.txt', level = logging.DEBUG, filemode = 'w', format = '%(asctime)s - %(levelname)s - %(message)s')
+import bs4
+from termcolor import colored
+
+from train import Trainer
 
 __title__ = 'SpamFilter'
 __version__ = '0.0.1'
@@ -23,6 +23,13 @@ __author__ = 'Tasdik Rahman'
 __email__ = 'prodicus@outlook.com'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2016 Tasdik Rahman'
+
+logging.basicConfig(
+    filename='logfiles/logfile.txt',
+    level = logging.DEBUG,
+    filemode = 'w',
+    format = '%(asctime)s - %(levelname)s - %(message)s'
+)
 
 # current directory where test.py is situated
 MODULE_DIR = os.path.abspath(os.path.join('.'))
@@ -107,7 +114,8 @@ def main():
 
     directory = raw_input(colored("Enter Corpus Directory['eg: corpus2'] : ",
      'blue'))
-    logging.info("Training against the directory "+directory)
+    logging.info("Training against the directory {0} ".format(directory))
+
     spam = raw_input(colored("Enter Spam Sub Directory[eg : 'spam']: ",
         'blue'))
     ham = raw_input(colored("Enter Clean Emails Sub Directory[eg :'ham']: ",

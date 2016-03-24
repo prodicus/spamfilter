@@ -2,7 +2,7 @@
 # @Author: Tasdik Rahman
 # @Date:   2016-03-12
 # @Last Modified by:   Tasdik Rahman
-# @Last Modified time: 2016-03-15
+# @Last Modified time: 2016-03-24 11:36:50
 # @MIT License
 # @http://tasdikrahman.me
 # @https://github.com/prodicus
@@ -17,10 +17,12 @@ to it!
 Read about smoothening techniques somewhere but let's not delve into that now.
 
 
-## -->Plan of action<-- ##
-
-- Train the classifier
-- Store it in a pickle object so as to save it for later use!
+References
+==========
+[1] 
+  - http://stackoverflow.com/a/5029989/3834059
+  - http://stackoverflow.com/q/8419401/3834059
+  - http://stackoverflow.com/q/2600790/3834059
 
 """
 
@@ -28,9 +30,17 @@ from __future__ import division
 from collections import defaultdict
 import math
 import logging
+
 from tabulate import tabulate
 
-logging.basicConfig(filename='logfile.txt', level = logging.DEBUG, filemode = 'w', format = '%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    filename='logfiles/logfile.txt',
+    level=logging.DEBUG,
+    filemode='w',
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+
 class NaiveBayesClassifier(object):
 
     """
@@ -47,10 +57,7 @@ class NaiveBayesClassifier(object):
         self.label_count = defaultdict(int)
         self.feature_count = defaultdict(int)
         self.feature_label = defaultdict(lambda: defaultdict(int))
-        # Reason?
-        # ref1: http://stackoverflow.com/a/5029989/3834059
-        # ref2: http://stackoverflow.com/q/8419401/3834059
-        # ref3: http://stackoverflow.com/q/2600790/3834059
+        # Reason? Refer:  [1]
         # self.feature_label = defaultdict(lambda: defaultdict(int))
         self.classification = defaultdict(int)
 
@@ -189,7 +196,7 @@ class NaiveBayesClassifier(object):
                 probability.items(),
                 key=lambda (k, v): v,
                 reverse=True
-                )[0][0]
+            )[0][0]
         else:
             return "Bad day bruh! No classification done! Come next time."
 
@@ -205,7 +212,7 @@ class NaiveBayesClassifier(object):
             list_of_lists,
             headers=['Label', 'Score'],
             tablefmt='orgtbl'
-            )
+        )
 
     def __str__(self):
         """
@@ -214,14 +221,14 @@ class NaiveBayesClassifier(object):
         :param self: class object
         """
         logging.info("No of Features : {feature}, \nNumber of spam email : {spam}, \nNumber of ham email : {ham}, \nTotal number of emails:  {total}".format(
-                        feature=len(self.feature_count),
-                        spam=self.label_count['spam'],
-                        ham=self.label_count['ham'],
-                        total=self.total
-                    ))
+            feature=len(self.feature_count),
+            spam=self.label_count['spam'],
+            ham=self.label_count['ham'],
+            total=self.total
+        ))
         return "No of Features : {feature}, \nNumber of spam email : {spam}, \nNumber of ham email : {ham}, \nTotal number of emails:  {total}".format(
-                        feature=len(self.feature_count),
-                        spam=self.label_count['spam'],
-                        ham=self.label_count['ham'],
-                        total=self.total
-                    )
+            feature=len(self.feature_count),
+            spam=self.label_count['spam'],
+            ham=self.label_count['ham'],
+            total=self.total
+        )
