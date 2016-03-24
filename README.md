@@ -4,23 +4,23 @@ Building a spam filter for our mini-project.
 
 ### Index
 
-- [Initial plan of action](https://github.com/prodicus/spamfilter/tree/pickling#initial-plan-of-action)
-- [Installing the dependencies](https://github.com/prodicus/spamfilter/tree/pickling#installing-the-dependencies)
-  - [Downloading the NLTK corpora](https://github.com/prodicus/spamfilter/tree/pickling#downloading-the-nltk-corpora)
-  - [Check whether you have everything set up](https://github.com/prodicus/spamfilter/tree/pickling#check-whether-you-have-everything-set-up)
-- [Running the classifier](https://github.com/prodicus/spamfilter/tree/pickling#running-the-classifier)
-  - [Manually running and training the classifier](https://github.com/prodicus/spamfilter/tree/pickling#manually-running-and-training-the-classifier)
-  - [Loading the saved classifier](https://github.com/prodicus/spamfilter/tree/pickling#loading-the-saved-classifier)
-- [Accuracy of the classifier](https://github.com/prodicus/spamfilter/tree/pickling#accuracy-of-the-classifier)
-- [Regarding the dataset](https://github.com/prodicus/spamfilter/tree/pickling#regarding-the-dataset)
-  - [Total files](https://github.com/prodicus/spamfilter/tree/pickling#total-files)
-- [To the contributers](https://github.com/prodicus/spamfilter/tree/pickling#to-the-contributers)
-  - [Ideas](https://github.com/prodicus/spamfilter/tree/pickling#ideas)
-- [References](https://github.com/prodicus/spamfilter/tree/pickling#references)
+- [Initial plan of action](https://github.com/prodicus/spamfilter#initial-plan-of-action)
+- [Installing the dependencies](https://github.com/prodicus/spamfilter#installing-the-dependencies)
+  - [Downloading the NLTK corpora](https://github.com/prodicus/spamfilter#downloading-the-nltk-corpora)
+  - [Check whether you have everything set up](https://github.com/prodicus/spamfilter#check-whether-you-have-everything-set-up)
+- [Running the classifier](https://github.com/prodicus/spamfilter#running-the-classifier)
+  - [Manually running and training the classifier](https://github.com/prodicus/spamfilter#manually-running-and-training-the-classifier)
+  - [Loading the saved classifier](https://github.com/prodicus/spamfilter#loading-the-saved-classifier)
+- [Accuracy of the classifier](https://github.com/prodicus/spamfilter#accuracy-of-the-classifier)
+- [Regarding the dataset](https://github.com/prodicus/spamfilter#regarding-the-dataset)
+  - [Total files](https://github.com/prodicus/spamfilter#total-files)
+- [To the contributers](https://github.com/prodicus/spamfilter#to-the-contributers)
+  - [Ideas](https://github.com/prodicus/spamfilter#ideas)
+- [References](https://github.com/prodicus/spamfilter#references)
 
 ### Initial plan of action
 
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter/tree/pickling#spamfilter)
+[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
 
 - [x] classify the dataset as spam or ham
   - [x] make a training set
@@ -38,7 +38,7 @@ Building a spam filter for our mini-project.
   is not!)
 
 ## Installing the dependencies
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter/tree/pickling#spamfilter)
+[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
 
 I prefer to use [`virtualenv`'s](http://docs.python-guide.org/en/latest/dev/virtualenvs/) for keeping the global `python` interpreter clutter free. But you are free to do a system wide install for the dependencies.
 
@@ -68,7 +68,7 @@ $ pip install -r requirements.txt
 If the above imports work without giving you an error, you are good to go!
 
 ## Running the classifier
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter/tree/pickling#spamfilter)
+[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
 
 See that you have [`make`](https://www.gnu.org/software/make/) installed on your system
 
@@ -91,7 +91,7 @@ $ make pickle_run
 Watch and lay back!
 
 ## Accuracy of the classifier
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter/tree/pickling#spamfilter)
+[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
 
 I ran it one too many times apparantly and the accuracy is generally between 
 
@@ -103,7 +103,7 @@ I ran it one too many times apparantly and the accuracy is generally between
 **Watch the classifier [in action here](http://pastebin.com/cwSQxaEX)**
 
 ## Regarding the dataset
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter/tree/pickling#spamfilter)
+[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
 
 The dataset used is the [Enron dataset](http://www.cs.cmu.edu/~enron/). The
 total size of the whole file being close to **1.8GB**.
@@ -121,7 +121,7 @@ Read more about the [directory structure here](https://github.com/prodicus/spamf
 Training against a total of **33,702** emails!
 
 ## To the contributers
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter/tree/pickling#spamfilter)
+[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
 
 - **Make an issue if you have any query**
 - before developing a feature, create a seperate branch from the master on you fork
@@ -148,6 +148,6 @@ classifiers (increasing the accuracy is the aim)
 - [ ] **More to come** 
 
 ## References
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter/tree/pickling#spamfilter)
+[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
 
 - ["Spam Filtering with Naive Bayes - Which Naive Bayes?". Proceedings of the 3rd Conference on Email and Anti-Spam (CEAS 2006), Mountain View, CA, USA, 2006](http://www.aueb.gr/users/ion/docs/ceas2006_paper.pdf)
