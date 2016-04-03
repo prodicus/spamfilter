@@ -1,44 +1,46 @@
 ## spamfilter
 
-Building a spam filter for our mini-project. 
+[spamfilter](https://github.com/prodicus/spamfilter) is our Machine Learning project, where we build a __custom Naive Bayes
+classifier__ to classify email into __ham__ or __spam__.
 
-### Index
+**Trained on close to 33,000 training emails**
 
-- [Initial plan of action](https://github.com/prodicus/spamfilter#initial-plan-of-action)
-- [Installing the dependencies](https://github.com/prodicus/spamfilter#installing-the-dependencies)
-  - [Downloading the NLTK corpora](https://github.com/prodicus/spamfilter#downloading-the-nltk-corpora)
-  - [Check whether you have everything set up](https://github.com/prodicus/spamfilter#check-whether-you-have-everything-set-up)
-- [Running the classifier](https://github.com/prodicus/spamfilter#running-the-classifier)
-  - [Manually running and training the classifier](https://github.com/prodicus/spamfilter#manually-running-and-training-the-classifier)
-  - [Loading the saved classifier](https://github.com/prodicus/spamfilter#loading-the-saved-classifier)
-- [Accuracy of the classifier](https://github.com/prodicus/spamfilter#accuracy-of-the-classifier)
-- [Regarding the dataset](https://github.com/prodicus/spamfilter#regarding-the-dataset)
-  - [Total files](https://github.com/prodicus/spamfilter#total-files)
-- [To the contributers](https://github.com/prodicus/spamfilter#to-the-contributers)
-  - [Ideas](https://github.com/prodicus/spamfilter#ideas)
-- [References](https://github.com/prodicus/spamfilter#references)
+Feature sets
 
-### Initial plan of action
+- CAPSLOCK
+- attachments
+- numbers
+- Links
+- Words in text
 
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
+> **You can use the pickled classifier objects to classify mail into __spam__ or __ham__. (Refer the [DEMO and API usage](#api-usage) guide for details)**
 
-- [x] classify the dataset as spam or ham
-  - [x] make a training set
-  - [x] make a testing set (against which we will test our trained model)
-- Machine learning models to be tested upon
-  - [x] Naive Bayes
-  - [ ] Logistic regression
-  - [ ] Linear SVM
-  - **more to come**
-- [x] Pickling of the classifier trained on `full_corpus`
-- [x] To add [`logging` module](https://docs.python.org/2/howto/logging.html) into `test.py`
-  for logging error messages. 
-- [ ] deploying it to [heroku](https://heroku.com)
-- [ ] Implement [`sklearn`'s machine learning algorithms](https://scikit-learn.org/stable/modules/naive_bayes.html) (Will have to read upon on what's feasible and what
-  is not!)
+![demo](http://i.imgur.com/Yvz3Co6.jpg)
 
-## Installing the dependencies
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
+## Index
+
+- [Development](#development)
+  - [Installing the dependencies](#installing-the-dependencies)
+  - [Downloading the NLTK corpora](#downloading-the-nltk-corpora)
+  - [Check whether you have everything set up](#check-whether-you-have-everything-set-up)
+- [Running the classifier](#running-the-classifier)
+  - [Loading the saved classifier](#loading-the-saved-classifier)
+  - [Manually running and training the classifier](#manually-running-and-training-the-classifier)
+- [API usage](#api-usage)
+  - [Custom NB classifier API](#custom-nb-classifier-api)
+  - [Textblob API](#textblob-api)
+- [Training classifier on your own dataset](#training-classifier-on-your-own-dataset)
+- [FAQ](#faq)
+  - [Accuracy of the classifier](#accuracy-of-the-classifier)
+  - [Regarding the dataset](#regarding-the-dataset)
+- [To the contributers](#to-the-contributers)
+  - [Ideas](#ideas)
+- [Legal stuff](#legal-stuff)
+
+## Development
+[:arrow_up: Back to top](#index)
+
+#### Installing the dependencies
 
 I prefer to use [`virtualenv`'s](http://docs.python-guide.org/en/latest/dev/virtualenvs/) for keeping the global `python` interpreter clutter free. But you are free to do a system wide install for the dependencies.
 
@@ -68,17 +70,9 @@ $ pip install -r requirements.txt
 If the above imports work without giving you an error, you are good to go!
 
 ## Running the classifier
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
+[:arrow_up: Back to top](#index)
 
-See that you have [`make`](https://www.gnu.org/software/make/) installed on your system
-
-#### Manually running and training the classifier
-
-```sh
-$ make run
-```
-
-What this does is it will ask you which dataset to train the classifier upon after it is trained, which dataset to test it upon.
+After [installing the dependencies](https://github.com/prodicus/spamfilter#installing-the-dependencies) make sure that you have [`make`](https://www.gnu.org/software/make/) installed on your system
 
 #### Loading the saved classifier
 
@@ -90,64 +84,119 @@ $ make pickle_run
 
 Watch and lay back!
 
-## Accuracy of the classifier
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
+#### Manually running and training the classifier
+
+```sh
+$ make run
+```
+
+What this does is it will ask you which dataset to train the classifier upon.
+
+And after it is trained, which dataset to test the classifier upon.
+
+**NOTE**: For those not having `make` installed. You will have to do a 
+
+- `$ python test.py` for `$ make run`
+- `$ python test_classifier_pickle.py` for `$ make pickle_run`
+
+## API usage
+[:arrow_up: Back to top](#index)
+
+### Custom NB classifier API
+
+**Refer [API usage for the custom classifier (wiki)](https://github.com/prodicus/spamfilter/wiki/API-usage-for-the-custom-classifier) for implementation details**
+
+### Textblob API
+
+**Refer [API usage for the textblob classifier (wiki)](https://github.com/prodicus/spamfilter/wiki/API-usage-for-the-textblob-classifier) for implementation details**
+
+##Training classifier on your own dataset
+[:arrow_up: Back to top](#index)
+
+You can train the classifier on your own dataset! 
+
+#### Step 1
+
+Put your dataset folder (eg: `data_foo`) inside the `data` folder
+
+```bash
+$ tree data/corpus2/ -L 1
+data/data_foo/
+├── ham
+└── spam
+
+```
+
+#### Step 2
+
+- specify the folder name of your newly added dataset and the name of the pickle file to be created here [here in file `create_pickle.py`](https://github.com/prodicus/spamfilter/blob/f9dc8e9dabc7b9916c964fcdeb4329fabfaf3822/create_pickle.py#L33-L37)
+
+- Choose the number of files to train the classifier againt [here in file `create_pickle.py`](https://github.com/prodicus/spamfilter/blob/f9dc8e9dabc7b9916c964fcdeb4329fabfaf3822/create_pickle.py#L54)
+
+#### Step 3
+
+```bash
+$ make pickle
+```
+
+![boom](http://media.tumblr.com/tumblr_ltuzjvbQ6L1qzgpx9.gif)
+
+## FAQ
+[:arrow_up: Back to top](#index)
+
+#### Accuracy of the classifier
 
 I ran it one too many times apparantly and the accuracy is generally between 
 
 |          | Accuracy  |
 |:--------:|:---:|
 | **Spam** | _80 to 94%_|
-| **Ham**  | _60 to 80%_ |
+| **Ham**  | _70 to 80%_ |
 
 **Watch the classifier [in action here](http://pastebin.com/cwSQxaEX)**
 
-## Regarding the dataset
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
+#### Regarding the dataset
 
-The dataset used is the [Enron dataset](http://www.cs.cmu.edu/~enron/). The
-total size of the whole file being close to **1.8GB**.
+The dataset used is the [Enron dataset](http://www.cs.cmu.edu/~enron/). 
 
-So we will be using the dataset used in the paper ["Spam Filtering with Naive Bayes - Which Naive Bayes?"](http://www.aueb.gr/users/ion/docs/ceas2006_paper.pdf) which has already classified the dataset into **spam** and **ham**. 
-
-***
-
-Training it against the **full_corpus** dataset and then cross validating the pickled classifier with any of the datasets
+We Trained our [`spam_classifier.pickle`](https://github.com/prodicus/spamfilter/blob/master/saved_classifiers/spam_classifier.pickle) classifier object against the [full_corpus](https://github.com/prodicus/spamfilter/tree/master/data/full_corpus) dataset and then cross validated the pickled classifier with any of the datasets present in the [data](https://github.com/prodicus/spamfilter/tree/master/data/) directory
 
 Read more about the [directory structure here](https://github.com/prodicus/spamfilter/blob/pickling/data/README.md)
 
-#### Total files 
-
-Training against a total of **33,702** emails!
-
 ## To the contributers
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
+[:arrow_up: Back to top](#index)
 
-- **Make an issue if you have any query**
-- before developing a feature, create a seperate branch from the master on you fork
-as this will reduce merge conflicts, 
-
-```sh
-$ git checkout -b <username>/<feature_to_implement>
-```
-
-- Before making a Pull request, check whether that it passes `flake8`. Refer to [PEP0008](http://pep8.org/) for details
-
-```sh
-$ flake8 <file_you_are_working_on>.py
-```
-- Don't forget to flatten (`rebasing`) your commits to one before making a PR.
+Refer [CONTRIBUTING.md](https://github.com/prodicus/spamfilter/tree/master/CONTRIBUTING.md) for more details
 
 #### Ideas
+[:arrow_up: Back to top](#index)
 
-- [ ] **Deploying to heroku**
-- [ ] To make a voting system which will take the best out of all the
-classifiers (increasing the accuracy is the aim)
+- [ ] **Deploying a full blown app to heroku**
+- [ ] ~~To make a voting system which will take the best out of all the classifiers (increasing the accuracy is the aim)~~
+- [x] Try out [`textblob`](https://textblob.readthedocs.org/en/dev/) and see how it performs with our classifier
 - [x] ~~To decide on whether to use `clint` or `termcolor`~~ Using colorama as
   explained in commit [89da4cd](https://github.com/prodicus/spamfilter/commit/89da4cd534abef3adec7b6b22a4e64e0f2b33393)
-- [ ] **More to come** 
+- [ ] Try implementing some of the algorithms using scikit learn 
 
-## References
-[:arrow_up: Back to top](https://github.com/prodicus/spamfilter#spamfilter)
+## Legal Stuff
+[:arrow_up: Back to top](#index)
 
-- ["Spam Filtering with Naive Bayes - Which Naive Bayes?". Proceedings of the 3rd Conference on Email and Anti-Spam (CEAS 2006), Mountain View, CA, USA, 2006](http://www.aueb.gr/users/ion/docs/ceas2006_paper.pdf)
+Open sourced under [GPLv3](http://www.gnu.org/licenses/gpl-3.0.en.html)
+
+    spamfilter
+    Copyright (C) 2016  Tasdik Rahman(prodicus@outlook.com)
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+You can a copy of the [LICENSE](https://github.com/prodicus/spamfilter/tree/master/LICENSE) file HERE
