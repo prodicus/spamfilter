@@ -2,6 +2,9 @@
 testing_file.py
 testing_file.ipynb
 
+# pickled classifiers (as they are darn large)
+saved_classifiers/textblob_api.pickle
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

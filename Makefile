@@ -17,15 +17,8 @@ pickle:
 	python create_pickle.py
 
 clean:
-	-find /home/tasdik/Dropbox/projects/spamfilter -iname "*.pyc" \
-	-exec rm "{}" \;
-
-	# cleaning the saved classifiers if any found
-	-rm saved_classifiers/spam_classifier.pickle \
-        saved_classifiers/trainer.pickle
-
-	# cleaning the log files
-	-rm logfiles/logfile.txt
+	-find . -name '*.pyc' -delete
+	-find . -name '__pycache__' -delete
 
 .PHONY: help
 help:
