@@ -1,5 +1,11 @@
 ## spamfilter
 
+***
+
+>**unmaintained**: Please go to [spammy](https://github.com/prodicus/spammy) for the latest development version which is pip installable
+
+***
+
 [spamfilter](https://github.com/prodicus/spamfilter) is our Machine Learning project, where we build a __custom Naive Bayes
 classifier__ to classify email into __ham__ or __spam__.
 
